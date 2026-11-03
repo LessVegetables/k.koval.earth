@@ -1,1 +1,9 @@
 *.code-workspace
+.DS_Store
+other_wip/
+.claude/
+
+# Source material, not part of the website
+for_my_website.txt
+*.webarchive
+/*.pdf
