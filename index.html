@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Katie Koval — Geologist</title>
+  <!-- Статистика Umami -->
+  <script defer src="https://stat.gehrman.me/script.js" data-website-id="bd6472b4-ca5a-4dff-aa35-6c4a16622efc" data-domains="www.koval.earth"></script>
+  <script defer src="https://stat.gehrman.me/recorder.js" data-website-id="bd6472b4-ca5a-4dff-aa35-6c4a16622efc" data-domains="www.koval.earth"></script>
   <link rel="preload" href="fonts/archivo-latin-400-900.woff2" as="font" type="font/woff2" crossorigin />
   <script>
     // Язык до отрисовки, чтобы не мигал английский: ?lang=ru или сохранённый выбор, иначе английский
@@ -418,6 +421,8 @@
         if (html.lang === 'ru') url.searchParams.set('lang', 'ru'); else url.searchParams.delete('lang');
         history.replaceState(null, '', url);
         render();
+        // Событие в Umami (если скрипт статистики загрузился)
+        if (window.umami) umami.track('language-switch', { to: html.lang });
       };
       render();
     })();
